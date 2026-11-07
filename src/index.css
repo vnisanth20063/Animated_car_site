@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { background: #080808; scroll-behavior: auto; overflow-x: clip; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+body { @apply bg-ink text-white font-body antialiased; overflow-x: clip; -webkit-tap-highlight-color: transparent; }
+h1, h2, h3, h4 { @apply font-display; }
+:focus-visible { outline: 2px solid #FF672F; outline-offset: 3px; }
+::selection { background: #FF672F; color: #080808; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-colors duration-200 disabled:opacity-50 disabled:pointer-events-none; min-height: 44px; }
+  .btn-primary { @apply btn bg-ember text-ink hover:bg-white; }
+  .btn-ghost { @apply btn border border-white/25 text-white hover:border-ember hover:text-ember; }
+  .btn-quiet { @apply btn px-3 text-mist hover:text-white; }
+  .headline { @apply font-display font-bold uppercase leading-[0.95] tracking-tight break-words; }
+  .section { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .field { @apply w-full rounded-lg border border-line bg-charcoal px-4 py-3 text-base sm:text-sm text-white placeholder:text-mist/70 focus:border-ember focus:outline-none; min-height: 46px; }
+  .label { @apply mb-1.5 block text-sm font-medium text-white; }
+  .err { @apply mt-1 text-xs text-ember; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
